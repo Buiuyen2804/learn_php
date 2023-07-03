@@ -1,7 +1,7 @@
 <?php
     require_once "pdo.php";
     require_once "../category/pdo.php";
-    $cate = getData();
+    $categories = all();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,22 +11,25 @@
 </head>
 <body>
     <div class="container mt-3">
-        <a href="index.php" class="btn" style="margin-right: 5px"> < Back</a>
         <h3>Create New Product</h3>
         <form action="action-create.php" method="POST">
         <div class="mb-3">
+            <label class="form-label">ID</label>
+            <input required type="text" class="form-control" name="prodID" placeholder="Enter ID...">
+        </div>
+        <div class="mb-3">
             <label class="form-label">Name</label>
-            <input required type="text" class="form-control" name="name" placeholder="Enter name...">
+            <input required type="text" class="form-control" name="prodName" placeholder="Enter name...">
         </div>
         <div class="mb-3">
             <label class="form-label">Price</label>
-            <input required type="text" class="form-control" name="price" placeholder="Enter price...">
+            <input required type="text" class="form-control" name="prodPrice" placeholder="Enter price...">
         </div>
         <div class="mb-3">
             <label class="form-label">Category</label>
             <select class="form-select" aria-label="Default select example" name="cateId">
                 <?php 
-                    foreach($cate as $value):
+                    foreach($categories as $value):
                 ?>
                 <option value="<?=$value['id']?>"><?= $value['name'] ?></option>
                 <?php
@@ -34,6 +37,7 @@
                 ?>
             </select>
         </div>
+        <a href="index.php" class="btn btn-success" style="margin-right: 5px"> Back</a>
         <button type="submit" class="btn btn-success">Create</button>
         </form>
     </div>
