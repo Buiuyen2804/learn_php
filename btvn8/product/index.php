@@ -2,7 +2,7 @@
     require_once "pdo.php";
     require_once "../category/pdo.php";
     $prod = getProdData();
-    $cate = getData();
+    $categories = all();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
     <div class="container mt-3">
         <div>
             <h3>List Products</h3>
-            <a href="create.php" class="btn btn-success" style="margin-right: 5px;">Create</a>
+            <a href="create.php" class="btn btn-primary" style="margin-right: 5px;">Create</a>
         </div>
         <table class="table table-hover">
         <thead>
@@ -40,9 +40,9 @@
                 <td><?= $value['name'] ?> </td>
                 <td>
                     <form id="delete_<?= $value['prodId']?>" action="delete.php" method="POST" style="display:flex">
-                        <a href="./edit.php?id=<?= $value['prodId']?>" class="btn btn-dark" style="margin-right: 5px">Edit</a>
+                        <a href="./edit.php?id=<?= $value['prodId']?>" class="btn btn-danger" style="margin-right: 10px">Edit</a>
                         <input type="hidden" value="<?= $value['prodId'] ?>" name="id">
-                        <a class="btn btn-dark" onclick="confirmDelete(<?= $value['prodId'] ?>)">Delete</a>
+                        <a class="btn btn-success" onclick="confirmDelete(<?= $value['prodId'] ?>)">Delete</a>
                     </form>
                 </td>
             </tr>
