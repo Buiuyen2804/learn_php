@@ -1,11 +1,12 @@
 <?php 
     require_once "pdo.php";
     $data = [
-        'prodName' => $_POST['name'],
-        'prodPrice' => $_POST['price'],
+        'prodId' => $_POST['prodID'],
+        'prodName' => $_POST['prodName'],
+        'prodPrice' => $_POST['prodPrice'],
         'cateId' => $_POST['cateId'],
         'id' => $_GET['id']
     ];
     updateProdData($data);
-    header("Location: http://localhost/learn_php/product/index.php");
+    header("Location: http://localhost/learn_php/btvn8/product/index.php");
 ?>
