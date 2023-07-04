@@ -19,9 +19,9 @@
             $cateId = [
                 'id' => $prodArr['cateId']
             ];
-            $cateArr = getOneProdData($cateId);
+            $cateArr = getProdData($cateId);
         ?>
-        <form action="action-update.php?id=<?=$prodArr['prodId'] ?>" method="POST">
+        <form action="action_update.php?id=<?=$prodArr['prodId'] ?>" method="POST">
         <div class="mb-3">
             <label class="form-label">Name</label>
             <input required type="text" class="form-control" name="prodName" value="<?= $prodArr['prodName']?>">
@@ -33,9 +33,8 @@
         <div class="mb-3">
             <label class="form-label">Category</label>
             <select class="form-select" aria-label="Default select example" name="cateId">
-                <option selected value="<?= $cateArr[0]['id']?>"><?= $cateArr[0]['name']?></option>
                 <?php 
-                    foreach($cateArrs as $dataCate)
+                    foreach($categories as $dataCate)
                         if($dataCate['id'] == $cateArr['id'])
                             continue;                             
                         else{?>
@@ -49,3 +48,4 @@
     </div>
 </body>
 </html>
+
