@@ -39,10 +39,10 @@
                 <td><?= $value['prodPrice'] ?></td>
                 <td><?= $value['name'] ?> </td>
                 <td>
-                    <form id="delete_<?= $value['prodId']?>" action="delete.php" method="POST" style="display:flex">
+                    <form id="delete_<?= $value['id']?>" action="./delete.php" method="POST" style="display:flex">
+                    <input type="hidden" value="<?=$value['prodId']?>" name="id">
                         <a href="./edit.php?id=<?= $value['prodId']?>" class="btn btn-danger" style="margin-right: 10px">Edit</a>
-                        <input type="hidden" value="<?= $value['prodId'] ?>" name="id">
-                        <a class="btn btn-success" onclick="confirmDelete(<?= $value['prodId'] ?>)">Delete</a>
+                        <button type="button" class="btn btn-success" onclick="confirmDelete(<?= $value['id'] ?>)">Delete</button>
                     </form>
                 </td>
             </tr>
