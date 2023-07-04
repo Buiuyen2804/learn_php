@@ -17,7 +17,7 @@
     }
 
     function createNewProdData($data){
-        $sql = "INSERT INTO product (prodId,prodName,prodPrice,cateId)VALUES (:prodId, :prodName, :prodPrice, :cateId)";
+        $sql = "INSERT INTO product (prodId,prodName,prodPrice,cateId) VALUES (:prodId, :prodName, :prodPrice, :cateId)";
         $create = prepareSQL($sql);
         $create->execute($data);
     }
